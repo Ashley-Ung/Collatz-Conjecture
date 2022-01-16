@@ -29,12 +29,25 @@ int numCycles (int num)
 int maxCycles (int num1, int num2)
 {
 	int max = 1;
-
-	for (int i = num1; i <= num2; i++)
+	
+	if (num1 > num2)
 	{
-		if (max < numCycles (i))
+		for (int i = num1; i <= num2; i++)
 		{
-			max = numCycles (i);
+			if (max < numCycles (i))
+			{
+				max = numCycles (i);
+			}
+		}
+	}
+	else 
+	{
+		for (int i = num1; i <= num2; i++)
+		{
+			if (max < numCycles (i))
+			{
+				max = numCycles (i);
+			}
 		}
 	}
 	return max;
@@ -42,8 +55,7 @@ int maxCycles (int num1, int num2)
 
 int main (int argc, char **argv)
 {
-	int firstNum;
-	int secondNum;
+	int firstNum, secondNum;
 
 	FILE* inFile = NULL;
 
